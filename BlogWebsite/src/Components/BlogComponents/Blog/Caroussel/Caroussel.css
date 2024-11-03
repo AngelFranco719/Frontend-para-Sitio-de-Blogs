@@ -1,0 +1,40 @@
+.slider {
+    display: flex;
+    width: 75vw;
+    height: 25ch;
+    margin: auto;
+    overflow: hidden;
+}
+
+.slider .slider-track {
+    width: calc(25ch * 8);
+    display: flex;
+    flex-direction: row;
+    animation: scroll 40s linear infinite;
+    -webkit-animation: scroll 10s linear infinite;
+    gap: 10px;
+}
+
+.slider .slide {
+    width: 25ch;
+}
+
+.slider .slide img {
+    height: 25ch;
+    width: 25ch;
+    max-width: 25ch;
+    object-fit: contain;
+    margin: 0;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0%);
+        -webkit-transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(calc(-25ch*4));
+        -webkit-transform: translateX(calc(-25ch*4));
+    }
+}

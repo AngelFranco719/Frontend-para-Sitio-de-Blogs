@@ -1,0 +1,55 @@
+#LeftImageText {
+    height: fit-content;
+    width: 100%;
+    box-shadow: 0px 0px 10px 2px #737272;
+}
+
+.LeftContent {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 4fr 6fr;
+    grid-template-rows: auto;
+}
+
+.LeftImage {
+    grid-row: 1;
+    grid-column: 1;
+    height: 100%;
+    width: 100%;
+    justify-self: start;
+    align-self: self-start;
+    margin-top: 0;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.LeftInformation {
+    display: flex;
+    flex-direction: column;
+    grid-row: 1;
+    grid-column: 2;
+    color: black;
+    height: 100%;
+    width: 95%;
+    padding-top: 2%;
+
+}
+
+.separatorLeft {
+    height: 1%;
+    width: 50%;
+    background-color: #47a9ff;
+    align-self: flex-end;
+    margin-top: 2%;
+}
+
+.LeftEditor {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    height: 70%;
+    width: 95%;
+    padding-left: 5%;
+    padding-bottom: 10%;
+
+}

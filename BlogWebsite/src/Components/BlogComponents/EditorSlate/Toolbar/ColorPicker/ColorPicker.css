@@ -1,0 +1,11 @@
+#ColorPicker{
+    position: absolute;
+    background-color: white;
+    display: flex;
+    width: min-content;
+    padding: 15px;
+    z-index: 100;
+    top: 130px; 
+    left: 200px;
+
+}

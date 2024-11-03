@@ -1,0 +1,16 @@
+#Banner {
+    display: flex;
+    background-color: transparent;
+    height: 75vh;
+    width: calc(100vw - 17px);
+    align-items: center;
+    justify-content: center;
+}
+
+#BannerImage {
+    margin: auto;
+    min-height: 100%;
+    min-width: 100%;
+    object-fit: unset;
+}
+
