@@ -9,7 +9,7 @@ interface optionProps {
 }
 
 export const ToolbarOption = (props: optionProps) => {
-  const [fontSize, setFontSize] = useState<number>(20);
+  const [fontSize, setFontSize] = useState<number>(15);
   const [fontColor, setFontColor] = useState<string>("#2e2e2e");
   const [enableColor, setEnableColor] = useState<boolean>(false);
 
@@ -17,7 +17,6 @@ export const ToolbarOption = (props: optionProps) => {
     props.editor && props.editor.addMark("fontColor", fontColor);
     setEnableColor(false);
   }, [fontColor]);
-
 
   const options = [
     { type: "bold", style: { fontWeight: "bold" }, label: "B" },

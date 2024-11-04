@@ -1,0 +1,60 @@
+.optionToolbar {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    align-items: left;
+    gap: 1px;
+    overflow: auto;
+}
+
+#HeaderOptions {
+    display: flex;
+    width: 100%;
+    height: 10%;
+    color: #252525;
+    border-style: solid;
+    border-color: #c8c8c8;
+    border-width: 0px 0px 1px 0px;
+    align-items: center;
+    justify-content: center;
+
+    p {
+        font-size: 23px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: underline;
+        text-decoration-color: #ff3838;
+    }
+}
+
+.option {
+    display: inline-block;
+    width: 100%;
+}
+
+.dropDown {
+    height: min-content;
+    margin: 0;
+    padding: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: white;
+    color: #353535;
+    width: 100%;
+
+    p {
+        font-size: 17px;
+    }
+}
+
+.dropDownContent {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+}
+
+.arrow {
+    margin-left: auto;
+}

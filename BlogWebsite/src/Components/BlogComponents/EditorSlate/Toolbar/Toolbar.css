@@ -2,15 +2,13 @@
    display: flex;
    gap: 0.3ch;
    background-color: rgb(249, 255, 255);
-   height: 4ch;
-   width: 50ch;
+   height: 3ch;
+   width: 90%;
    border-style: solid;
    border-color: rgb(87, 87, 87);
    border-width: 0.5px;
    border-radius: 0.5ch;
    padding: 5px;
-   position: fixed;
-   z-index: 10000;
 }
 
 #Option {
@@ -49,7 +47,7 @@ input[type="number"] {
 }
 
 .colorPicker {
-
+   align-self: center;
    border-radius: 50%;
    border-color: rgb(177, 174, 174);
    padding-right: 1.2ch;

@@ -1,5 +1,5 @@
 import { ReactEditor, RenderElementProps } from "slate-react";
-import { textElement } from "../TypesDefinitions";
+import { textElement } from "../../../TypesDeclarations/BlogContentTypes";
 
 interface propsBlock {
   renderElement: RenderElementProps;

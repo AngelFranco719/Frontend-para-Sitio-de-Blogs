@@ -3,18 +3,25 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    width: 100%;
+    max-width: 100%;
+    height: fit-content;
+    box-sizing: border-box;
 }
 
-.textEditor {
+.textEditor .slate-editor {
     justify-self: center;
     background-color: white;
     color: rgb(46, 46, 46);
     max-width: 100%;
+    width: 100%;
+    min-width: 100%;
     border-radius: 10px;
     border-style: solid;
     border-color: gray;
     border-width: 1px;
     padding: 3%;
+    box-sizing: border-box;
 }
 
 .targetEditor {
@@ -23,7 +30,7 @@
     align-items: center;
     background-color: white;
     color: rgb(46, 46, 46);
-    min-height: 20ch;
+    height: fit-content;
     width: 25ch;
     border-radius: 10px;
     border-width: 1px;

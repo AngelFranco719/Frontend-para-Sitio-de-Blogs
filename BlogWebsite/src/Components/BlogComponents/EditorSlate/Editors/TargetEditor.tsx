@@ -4,7 +4,7 @@ import { Editable, ReactEditor, Slate, withReact } from "slate-react";
 import "./Editor.css";
 import { TypeBlock } from "../TypeBlock";
 import { TypeLeaf } from "../TypeLeaf";
-import { targetElement } from "../../TypesDefinitions";
+import { targetElement } from "../../../../TypesDeclarations/BlogContentTypes";
 
 interface propEditor {
   setEditorActual: React.Dispatch<
@@ -30,6 +30,7 @@ export const TargetEditor = (props: propEditor) => {
           onChange={() => props.setEditorActual(editorContenido)}
         >
           <Editable
+            readOnly
             renderElement={(props) => {
               return (
                 <TypeBlock editor={editorContenido} renderElement={props} />
