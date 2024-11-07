@@ -26,7 +26,7 @@
 
 .p_option {
    margin: 0%;
-   width: min-content;
+   width: max-content;
    height: min-content;
    color: rgb(31, 30, 30);
    font-family: Georgia, 'Times New Roman', Times, serif;
@@ -37,8 +37,8 @@ input[type="number"] {
    margin-bottom: 4px;
    text-align: center;
    background-color: white;
-   width: 5ch;
    height: 2.5ch;
+   max-width: 4ch;  
    border-style: solid;
    border-color: rgb(136, 136, 136);
    border-width: 1px;

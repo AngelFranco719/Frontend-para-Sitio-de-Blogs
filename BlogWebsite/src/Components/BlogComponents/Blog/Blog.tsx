@@ -17,6 +17,7 @@ import { Banner } from "./Banner/Banner";
 import { Header } from "./Header/Header";
 import { LeftImageText } from "../EditorSlate/Editors/LeftImageText/LeftImageText";
 import { useBlogContext } from "../../../BlogContext";
+import { TextEditor } from "../EditorSlate/Editors/TextEditor";
 
 export const BlogViewer = () => {
   const [, setEditorActual] = useState<ReactEditor>();
@@ -33,7 +34,15 @@ export const BlogViewer = () => {
   const getComponent = (index: number) => {
     const child = childrens && childrens[index];
     if (isText(child)) {
-      return <></>;
+      return (
+        <TextEditor
+          agregar
+          content={child}
+          setText={undefined}
+          key={index}
+          readOnly
+        ></TextEditor>
+      );
     }
     if (isTarget(child)) {
       return (

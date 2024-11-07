@@ -7,6 +7,8 @@
     max-width: 100%;
     height: fit-content;
     box-sizing: border-box;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 .textEditor .slate-editor {

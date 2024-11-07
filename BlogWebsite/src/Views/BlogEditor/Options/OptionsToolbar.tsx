@@ -16,6 +16,12 @@ export const OptionsToolbar = () => {
       name: "Agregar Tarjeta",
       style: "TargetIcon",
     },
+    {
+      id: 3,
+      type: "HorizontalContainer",
+      name: "Agregar Contenedor Horizontal",
+      style: "HorizontalContainerIcon",
+    },
   ];
 
   return (

@@ -13,8 +13,9 @@ import { isText } from "../../Blog/BlogTypeGuards";
 
 interface propEditor {
   content: textElement;
-  setText: React.Dispatch<SetStateAction<CustomText[]>>;
+  setText: React.Dispatch<SetStateAction<CustomText[]>> | undefined;
   agregar: boolean;
+  readOnly: boolean;
 }
 
 export const TextEditor = (props: propEditor) => {
@@ -22,7 +23,7 @@ export const TextEditor = (props: propEditor) => {
 
   useEffect(() => {
     if (props.agregar && isText(editor.children[0])) {
-      props.setText(editor.children[0].children);
+      props.setText && props.setText(editor.children[0].children);
     }
     console.log("no sucedió");
   }, [props.agregar]);
@@ -32,7 +33,7 @@ export const TextEditor = (props: propEditor) => {
   return (
     <>
       <div id="divEditor">
-        <Toolbar editor={editor}></Toolbar>
+        {props.setText && <Toolbar editor={editor}></Toolbar>}
         <Slate editor={editor} initialValue={initialValue}>
           <Editable
             renderElement={(props) => {
@@ -41,6 +42,7 @@ export const TextEditor = (props: propEditor) => {
             renderLeaf={(props) => {
               return <TypeLeaf leafProps={props} editor={editor} />;
             }}
+            readOnly={props.readOnly}
           ></Editable>
         </Slate>
       </div>

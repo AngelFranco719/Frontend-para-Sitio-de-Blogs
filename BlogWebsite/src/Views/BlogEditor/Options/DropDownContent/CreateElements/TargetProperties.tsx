@@ -1,12 +1,12 @@
 import { SetStateAction, useEffect, useState } from "react";
-import "./Properties.css";
+import "../Properties.css";
 import {
   CustomText,
   targetElement,
-} from "../../../../TypesDeclarations/BlogContentTypes";
-import { TextEditor } from "../../../../Components/BlogComponents/EditorSlate/Editors/TextEditor";
-import { initialCustomText, initialValue } from "./PropertiesUtils";
-import { useBlogContext } from "../../../../BlogContext";
+} from "../../../../../TypesDeclarations/BlogContentTypes";
+import { TextEditor } from "../../../../../Components/BlogComponents/EditorSlate/Editors/TextEditor";
+import { initialCustomText, initialValue } from "../PropertiesUtils";
+import { useBlogContext } from "../../../../../BlogContext";
 
 interface propsTarget {
   setFinished: React.Dispatch<SetStateAction<boolean>>;
@@ -82,6 +82,7 @@ export const TargetProperties = (props: propsTarget) => {
           agregar={agregar}
           setText={setText}
           content={initialValue}
+          readOnly={false}
         ></TextEditor>
       </div>
       <button

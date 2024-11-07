@@ -78,5 +78,6 @@ export type LeftImageText = {
 export type HorizontalContainer = {
   type: "HorizontalContainer";
   backgroundColor: string;
+  ID_Container: number;
   children: Array<targetElement | textElement>;
 };
