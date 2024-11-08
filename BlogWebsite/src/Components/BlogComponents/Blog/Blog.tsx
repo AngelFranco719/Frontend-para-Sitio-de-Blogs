@@ -1,6 +1,6 @@
 import "./Blog.css";
 import { ReactEditor } from "slate-react";
-import { useEffect, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 import { TargetEditor } from "../EditorSlate/Editors/TargetEditor";
 import {
   isBanner,
@@ -19,7 +19,12 @@ import { LeftImageText } from "../EditorSlate/Editors/LeftImageText/LeftImageTex
 import { useBlogContext } from "../../../BlogContext";
 import { TextEditor } from "../EditorSlate/Editors/TextEditor";
 
-export const BlogViewer = () => {
+interface propsBlogViewer {
+  isEditing: boolean;
+  setSelectedIndex: React.Dispatch<SetStateAction<string | undefined>>;
+}
+
+export const BlogViewer = (props: propsBlogViewer) => {
   const [, setEditorActual] = useState<ReactEditor>();
   const { content } = useBlogContext();
   const childrens = content.content;
@@ -59,6 +64,8 @@ export const BlogViewer = () => {
           key={index}
           container={child}
           setEditor={setEditorActual}
+          isEditing={props.isEditing}
+          setSelectedIndex={props.setSelectedIndex}
         />
       );
     }

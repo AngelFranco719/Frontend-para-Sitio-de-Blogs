@@ -5,6 +5,7 @@ import { HorizontalContainerProperties } from "./CreateElements/HorizontalContai
 
 interface propsProperties {
   typeSelected: string;
+  selectedContainer: string | undefined;
 }
 
 export const Properties = (props: propsProperties) => {
@@ -17,7 +18,12 @@ export const Properties = (props: propsProperties) => {
   const getComponentSelected = () => {
     switch (props.typeSelected) {
       case "TargetElement":
-        return <TargetProperties setFinished={setFinished} />;
+        return (
+          <TargetProperties
+            setFinished={setFinished}
+            selectedContainer={props.selectedContainer}
+          />
+        );
       case "CustomText":
         return <CustomTextProperties />;
       case "HorizontalContainer":

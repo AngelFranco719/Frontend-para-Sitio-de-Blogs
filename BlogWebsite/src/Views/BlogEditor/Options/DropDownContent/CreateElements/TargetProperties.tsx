@@ -7,9 +7,11 @@ import {
 import { TextEditor } from "../../../../../Components/BlogComponents/EditorSlate/Editors/TextEditor";
 import { initialCustomText, initialValue } from "../PropertiesUtils";
 import { useBlogContext } from "../../../../../BlogContext";
+import { isHorizontalContainer } from "../../../../../Components/BlogComponents/Blog/BlogTypeGuards";
 
 interface propsTarget {
   setFinished: React.Dispatch<SetStateAction<boolean>>;
+  selectedContainer: string | undefined;
 }
 
 export const TargetProperties = (props: propsTarget) => {
@@ -48,9 +50,28 @@ export const TargetProperties = (props: propsTarget) => {
       title: title,
       image: url,
     };
+    if (props.selectedContainer === undefined) {
+      const actualContent = [...content.content];
+      actualContent.push(newTargetElement);
+      setContent({ ...content, content: actualContent });
+    } else {
+      updateContainer(newTargetElement);
+    }
+  };
+
+  const updateContainer = (newTargetElement: targetElement) => {
     const actualContent = [...content.content];
-    actualContent.push(newTargetElement);
-    setContent({ ...content, content: actualContent });
+    const containerIndex = actualContent.findIndex((value) => {
+      return (
+        isHorizontalContainer(value) &&
+        value.ID_Container === props.selectedContainer
+      );
+    });
+    console.log(containerIndex);
+    if (isHorizontalContainer(actualContent[containerIndex])) {
+      actualContent[containerIndex].children.push(newTargetElement);
+      setContent({ ...content, content: actualContent });
+    }
   };
 
   return (

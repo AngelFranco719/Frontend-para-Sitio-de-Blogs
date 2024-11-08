@@ -6,6 +6,7 @@ interface optionProp {
   type: string;
   name: string;
   style: string;
+  selectedContainer: string | undefined;
 }
 
 export const Option = (option: optionProp) => {
@@ -25,7 +26,10 @@ export const Option = (option: optionProp) => {
           <span className="arrow">{selected ? "▲" : "▼"}</span>
         </div>
       </button>
-      <Properties typeSelected={typeSelected}></Properties>
+      <Properties
+        typeSelected={typeSelected}
+        selectedContainer={option.selectedContainer}
+      ></Properties>
     </div>
   );
 };

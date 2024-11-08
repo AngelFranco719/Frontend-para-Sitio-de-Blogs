@@ -2,6 +2,8 @@ import { useState } from "react";
 import "../Properties.css";
 import { useBlogContext } from "../../../../../BlogContext";
 import { HorizontalContainer } from "../../../../../TypesDeclarations/BlogContentTypes";
+import { v4 as uuidv4 } from "uuid";
+import React from "react";
 
 export const HorizontalContainerProperties = () => {
   const [color, setColor] = useState<string>("");
@@ -13,14 +15,16 @@ export const HorizontalContainerProperties = () => {
   };
 
   const onClickHandle = () => {
+    const id = uuidv4();
     const actualcontent = [...content.content];
     const newContainer: HorizontalContainer = {
       type: "HorizontalContainer",
       backgroundColor: color,
-      ID_Container: 2,
+      ID_Container: id,
       children: [],
     };
     actualcontent.push(newContainer);
+
     setContent({ ...content, content: actualcontent });
   };
 

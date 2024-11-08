@@ -2,7 +2,11 @@ import "./ComponentOptions.css";
 import "./Icons.css";
 import { Option } from "./Option";
 
-export const OptionsToolbar = () => {
+interface propsOptions {
+  selectedContainer: string | undefined;
+}
+
+export const OptionsToolbar = (props: propsOptions) => {
   const options = [
     {
       id: 1,
@@ -38,6 +42,7 @@ export const OptionsToolbar = () => {
               name={option.name}
               style={option.style}
               type={option.type}
+              selectedContainer={props.selectedContainer}
             />
           );
         })}
