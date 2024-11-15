@@ -11,7 +11,7 @@ export const OptionsToolbar = (props: propsOptions) => {
     {
       id: 1,
       type: "CustomText",
-      name: "Texto",
+      name: "Agregar Texto",
       style: "TextIcon",
     },
     {
@@ -22,6 +22,18 @@ export const OptionsToolbar = (props: propsOptions) => {
     },
     {
       id: 3,
+      type: "Caroussel",
+      name: "Agregar Carrusel",
+      style: "CarousselIcon",
+    },
+    {
+      id: 4,
+      type: "LeftImageText",
+      name: "Sección Imágen/Texto",
+      style: "LeftTextImageIcon",
+    },
+    {
+      id: 5,
       type: "HorizontalContainer",
       name: "Agregar Contenedor Horizontal",
       style: "HorizontalContainerIcon",

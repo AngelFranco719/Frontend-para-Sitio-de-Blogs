@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { CustomTextProperties } from "./CreateElements/CustomTextProperties";
 import { TargetProperties } from "./CreateElements/TargetProperties";
 import { HorizontalContainerProperties } from "./CreateElements/HorizontalContainerProperties";
+import { CarousselProperties } from "./CreateElements/CarousselProperties";
+import { LeftImageTextProperties } from "./CreateElements/LeftImageTextProperties";
 
 interface propsProperties {
   typeSelected: string;
@@ -28,6 +30,10 @@ export const Properties = (props: propsProperties) => {
         return <CustomTextProperties />;
       case "HorizontalContainer":
         return <HorizontalContainerProperties />;
+      case "Caroussel":
+        return <CarousselProperties></CarousselProperties>;
+      case "LeftImageText":
+        return <LeftImageTextProperties></LeftImageTextProperties>;
       default:
         return <></>;
     }

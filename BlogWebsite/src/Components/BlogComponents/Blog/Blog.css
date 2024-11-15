@@ -15,7 +15,7 @@
     height: 100%;
     margin-left: 10px;
     align-items: center;
-    gap: 20px;
+    gap: 50px;
     padding-bottom: 6ch;
     overflow: auto;
 }
@@ -32,5 +32,5 @@
     border-style: solid;
     border-width: 2px;
     border-color: #a7a7a7;
-
+    align-items: stretch;
 }
