@@ -1,5 +1,5 @@
-import { SetStateAction } from "react";
-import { HorizontalContainer as horizontalContainer } from "../../TypesDefinitions";
+import React, { SetStateAction, useState } from "react";
+import { HorizontalContainer as horizontalContainer } from "../../../../TypesDeclarations/BlogContentTypes";
 import { ReactEditor } from "slate-react";
 import { isCustomText, isTarget } from "../BlogTypeGuards";
 import { TextEditor } from "../../EditorSlate/Editors/TextEditor";
@@ -9,9 +9,12 @@ import "../Blog.css";
 interface propsHorizontalContainer {
   container: horizontalContainer;
   setEditor: React.Dispatch<SetStateAction<ReactEditor | undefined>>;
+  isEditing: boolean;
+  setSelectedIndex: React.Dispatch<SetStateAction<string | undefined>>;
 }
 
 export const HorizontalContainer = (content: propsHorizontalContainer) => {
+  const [selected, setSelected] = useState<boolean>(false);
   const childrens = content.container.children;
   let index = -1;
 
@@ -20,8 +23,10 @@ export const HorizontalContainer = (content: propsHorizontalContainer) => {
     if (isCustomText(children)) {
       return (
         <TextEditor
-          key={index}
-          setEditorActual={content.setEditor}
+          agregar
+          content={children}
+          readOnly
+          setText={undefined}
         ></TextEditor>
       );
     }
@@ -36,10 +41,27 @@ export const HorizontalContainer = (content: propsHorizontalContainer) => {
     }
   };
 
+  const onClickHandle = () => {
+    if (content.isEditing && selected) {
+      setSelected(false);
+      content.setSelectedIndex(undefined);
+    } else if (content.isEditing && !selected) {
+      setSelected(true);
+      content.setSelectedIndex(content.container.ID_Container);
+    }
+  };
+
   return (
     <>
       <div
-        style={{ backgroundColor: content.container.backgroundColor }}
+        onClick={() => {
+          onClickHandle();
+        }}
+        style={{
+          backgroundColor: content.container.backgroundColor,
+          borderWidth: selected ? "2px" : "1px",
+          borderColor: selected ? "#2a2a2a" : "#a7a7a7",
+        }}
         className="horizontalContainer"
       >
         {childrens.map(() => {

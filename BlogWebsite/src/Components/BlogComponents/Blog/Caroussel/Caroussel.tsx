@@ -1,5 +1,5 @@
 import "./Caroussel.css";
-import { Caroussel as caroussel } from "../../TypesDefinitions";
+import { Caroussel as caroussel } from "../../../../TypesDeclarations/BlogContentTypes";
 interface propsCaroussel {
   images: caroussel;
 }

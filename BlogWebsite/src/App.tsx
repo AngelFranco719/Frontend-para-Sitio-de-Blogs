@@ -1,46 +1,21 @@
-import { useEffect, useState } from "react";
-import { useFetch } from "./APIController/useFetch";
 import "./App.css";
-import { Blog } from "./Models/BlogModel";
-import { isBlog } from "./Models/ModelTypeGuards";
-import { BlogViewer } from "./Components/BlogComponents/Blog/Blog";
-import { isBlogStructure } from "./Components/BlogComponents/Blog/BlogTypeGuards";
-import { BlogStructure } from "./TypesDeclarations/BlogContentTypes";
+import { Landing } from "./Views/Landing/Landing";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { SingUp } from "./Views/SignUp/SignUp";
+import { LogIn } from "./Views/LogIn/Login";
 
 function App() {
-  const { data } = useFetch<Blog[]>(new URL("http://localhost:8080/Blog"));
-
-  const [blog, setBlog] = useState<Blog[]>([]);
-  const [blogContenido, setBlogContenido] = useState<BlogStructure>();
-
-  useEffect(() => {
-    console.log(data);
-    if (data && data.length > 0) {
-      const validBlogs = data.filter(isBlog);
-      setBlog(validBlogs);
-    }
-  }, [data]);
-
-  useEffect(() => {
-    blog.forEach((element) => {
-      if (isBlogStructure(element.blo_contenido)) {
-        console.log(element);
-        setBlogContenido(element.blo_contenido);
-      }
-    });
-  }, [blog]);
-
   return (
     <>
-      {blog.length > 0 ? (
-        blog.map((element) => {
-          return (
-            <BlogViewer key={element.id_Blog} content={element.blo_contenido} />
-          );
-        })
-      ) : (
-        <div>No hay Blogs</div>
-      )}
+      <div id="App">
+        <Router>
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/signup" element={<SingUp />} />
+            <Route path="/login" element={<LogIn />} />
+          </Routes>
+        </Router>
+      </div>
     </>
   );
 }

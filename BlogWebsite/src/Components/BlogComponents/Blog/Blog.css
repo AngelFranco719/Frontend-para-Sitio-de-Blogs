@@ -1,31 +1,36 @@
-#divBlog{
+#divBlog {
     display: flex;
     flex-direction: column;
     height: 100%;
-    width: 100%; 
+    width: 100%;
     background-color: white;
     align-items: center;
-
 }
 
-.content{
+.content {
     display: flex;
     flex-direction: column;
     background-color: white;
     width: 85%;
     height: 100%;
+    margin-left: 10px;
     align-items: center;
-    gap: 20px;
+    gap: 50px;
     padding-bottom: 6ch;
+    overflow: auto;
 }
 
-.horizontalContainer{
+.horizontalContainer {
     display: flex;
     justify-content: center;
+    height: max-content;
     width: 90%;
     gap: 20px;
     padding: 25px;
     border-radius: 20px;
     flex-wrap: wrap;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #a7a7a7;
+    align-items: stretch;
 }
-

@@ -1,0 +1,142 @@
+#Landing {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background-color: #dfdfdf;
+}
+
+#Landing_Content {
+    overflow: hidden;
+    width: 90%;
+    height: 85%;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 25px 0px #555555;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+
+}
+
+.Landing_WP {
+    grid-column: 1;
+    height: 100%;
+    width: 100%;
+    background-size: contain;
+    animation: changeBackground steps(1) 10s infinite;
+}
+
+@keyframes changeBackground {
+    0% {
+        background-image: url("./Images/Collage.gif");
+    }
+
+    10% {
+        background-image: url("./Images/Collage9.gif");
+    }
+
+    20% {
+        background-image: url("./Images/Collage8.gif");
+    }
+
+    30% {
+        background-image: url("./Images/Collage6.gif");
+    }
+
+    40% {
+        background-image: url("./Images/Collage4.gif");
+    }
+
+    50% {
+        background-image: url("./Images/Collage10.gif");
+    }
+
+    60% {
+        background-image: url("./Images/Collage7.gif");
+    }
+
+    70% {
+        background-image: url("./Images/Collage11.gif");
+    }
+
+    80% {
+        background-image: url("./Images/Collage13.gif");
+    }
+
+    90% {
+        background-image: url("./Images/Collage12.gif");
+    }
+
+    100% {
+        background-image: url("./Images/Collage7.gif");
+    }
+}
+
+.Landing_Presentation {
+    display: grid;
+    grid-template-rows: 1fr 8fr;
+    height: 100%;
+    width: 100%;
+}
+
+.Landing_Header {
+    align-self: center;
+    align-items: center;
+    grid-row: 1;
+    width: 90%;
+    height: 90%;
+    display: flex;
+    gap: 40px;
+    padding: 10px;
+    justify-content: right;
+    position: relative;
+
+    a {
+        color: #555555;
+        cursor: pointer;
+    }
+
+    a:hover {
+        color: #1d1d1d;
+        text-decoration: underline;
+        text-decoration-color: #a22cff;
+    }
+
+}
+
+.Landing_Text {
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-right: 60px;
+    color: #1d1d1d;
+
+    i {
+        color: #fe4747;
+    }
+
+    h1 {
+        text-align: left;
+        font-size: 80px;
+        margin: 0;
+    }
+
+    h2 {
+        text-align: center;
+        margin: 0;
+        height: min-content;
+        font-size: 40px;
+    }
+}
+
+.Button_Landing{
+    background-color: #292929;
+    width: 40%;
+    margin-top: 50px;
+    align-self: center;
+}

@@ -1,0 +1,141 @@
+.divProperties {
+    color: black;
+    padding-top: 2%;
+    padding-left: 10px;
+    padding-right: 10px;
+    overflow: auto;
+    margin-bottom: 5%;
+    padding-bottom: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-style: solid;
+    border-width: 1px 0px 1px 0px;
+    border-color: #a7a7a7;
+
+    input {
+        color: #2c2c2c;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: medium;
+        height: 25px;
+        width: 100%;
+        background-color: white;
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 10px;
+    }
+
+    button {
+        background-color: white;
+        color: #2c2c2c;
+        border-style: solid;
+        border-color: #2c2c2c;
+        height: 25px;
+        padding: 0;
+        margin-top: 4%;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    button:hover {
+        text-decoration: underline;
+    }
+}
+
+.insertImage {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    input {
+        color: #3a6ee7;
+        font-size: small;
+        text-decoration: underline;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        height: 25px;
+        width: 70%;
+        background-color: white;
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 10px;
+    }
+
+    button {
+        margin: 0;
+    }
+
+
+
+}
+
+.imagePreview {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.insertText {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    height: fit-content;
+
+    textarea {
+        color: #2c2c2c;
+        resize: none;
+        background-color: white;
+        height: 90%;
+        font-family: Arial, Helvetica, sans-serif;
+        border-radius: 10px;
+        font-size: medium;
+    }
+}
+
+.selectColor {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    padding-left: 5%;
+    gap: 10px;
+    justify-content: center;
+
+    input[type="color"] {
+        width: 15%;
+        height: 40px;
+
+    }
+}
+
+.carousselPreview {
+    display: flex;
+    height: max-content;
+    width: 90%;
+    gap: 10px;
+    row-gap: 0px;
+    flex-wrap: wrap;
+
+    img {
+        width: 20%;
+        height: 7ch;
+        object-fit: cover;
+    }
+}
+
+.insertTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    p {
+        width: fit-content;
+    }
+
+    input {
+        width: 70%;
+        font-weight: bold;
+        text-align: center;
+    }
+
+}

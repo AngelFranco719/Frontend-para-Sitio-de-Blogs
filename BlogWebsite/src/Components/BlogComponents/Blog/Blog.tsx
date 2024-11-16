@@ -1,8 +1,6 @@
-import { BlogStructure } from "../../../TypesDeclarations/BlogContentTypes";
 import "./Blog.css";
-import { TextEditor } from "../EditorSlate/Editors/TextEditor";
 import { ReactEditor } from "slate-react";
-import { useEffect, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 import { TargetEditor } from "../EditorSlate/Editors/TargetEditor";
 import {
   isBanner,
@@ -15,33 +13,40 @@ import {
 } from "./BlogTypeGuards";
 import { HorizontalContainer } from "./Containers/HorizontalContainer";
 import { Caroussel } from "./Caroussel/Caroussel";
-import { Toolbar } from "../EditorSlate/Toolbar/Toolbar";
 import { Banner } from "./Banner/Banner";
 import { Header } from "./Header/Header";
 import { LeftImageText } from "../EditorSlate/Editors/LeftImageText/LeftImageText";
-interface propsBlog {
-  content: BlogStructure;
+import { useBlogContext } from "../../../BlogContext";
+import { TextEditor } from "../EditorSlate/Editors/TextEditor";
+
+interface propsBlogViewer {
+  isEditing: boolean;
+  setSelectedIndex: React.Dispatch<SetStateAction<string | undefined>>;
 }
 
-export const BlogViewer = (structure: propsBlog) => {
-  const [editorActual, setEditorActual] = useState<ReactEditor>();
-  const childrens = structure.content.content;
+export const BlogViewer = (props: propsBlogViewer) => {
+  const [, setEditorActual] = useState<ReactEditor>();
+  const { content } = useBlogContext();
+  const childrens = content.content;
   let index = -1;
-  let color = structure.content.backgroundColor;
+  let color = content.content && content.backgroundColor;
 
   useEffect(() => {
-    console.log(JSON.stringify(structure.content, null, 2));
-  }, []);
+    console.log("Cambió en blog");
+    console.log(JSON.stringify(content, null, 2));
+  }, [content]);
 
   const getComponent = (index: number) => {
-    const child = childrens[index];
+    const child = childrens && childrens[index];
     if (isText(child)) {
       return (
         <TextEditor
-          key={index}
-          setEditorActual={setEditorActual}
+          agregar
           content={child}
-        />
+          setText={undefined}
+          key={index}
+          readOnly
+        ></TextEditor>
       );
     }
     if (isTarget(child)) {
@@ -59,6 +64,8 @@ export const BlogViewer = (structure: propsBlog) => {
           key={index}
           container={child}
           setEditor={setEditorActual}
+          isEditing={props.isEditing}
+          setSelectedIndex={props.setSelectedIndex}
         />
       );
     }
@@ -83,12 +90,12 @@ export const BlogViewer = (structure: propsBlog) => {
   return (
     <>
       <div style={{ backgroundColor: color }} id="divBlog">
-        <Toolbar editor={editorActual}></Toolbar>
         <div className="content">
-          {childrens.map(() => {
-            index++;
-            return getComponent(index);
-          })}
+          {childrens &&
+            childrens.map(() => {
+              index++;
+              return getComponent(index);
+            })}
         </div>
       </div>
     </>

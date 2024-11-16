@@ -1,3 +1,14 @@
+import { BaseEditor } from "slate";
+import { ReactEditor } from "slate-react";
+
+declare module "slate" {
+  interface CustomTypes {
+    Editor: BaseEditor & ReactEditor;
+    Element: textElement | targetElement | LeftImageText | CustomText;
+    Text: CustomText;
+  }
+}
+
 export type BlogStructure = {
   type: "Blog";
   content: Array<
@@ -67,5 +78,6 @@ export type LeftImageText = {
 export type HorizontalContainer = {
   type: "HorizontalContainer";
   backgroundColor: string;
+  ID_Container: string;
   children: Array<targetElement | textElement>;
 };

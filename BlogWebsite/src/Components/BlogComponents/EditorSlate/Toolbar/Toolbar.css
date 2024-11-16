@@ -2,15 +2,13 @@
    display: flex;
    gap: 0.3ch;
    background-color: rgb(249, 255, 255);
-   height: 4ch;
-   width: 50ch;
+   height: 3ch;
+   width: 90%;
    border-style: solid;
    border-color: rgb(87, 87, 87);
    border-width: 0.5px;
    border-radius: 0.5ch;
    padding: 5px;
-   position: fixed;
-   z-index: 10000;
 }
 
 #Option {
@@ -28,7 +26,7 @@
 
 .p_option {
    margin: 0%;
-   width: min-content;
+   width: max-content;
    height: min-content;
    color: rgb(31, 30, 30);
    font-family: Georgia, 'Times New Roman', Times, serif;
@@ -39,8 +37,8 @@ input[type="number"] {
    margin-bottom: 4px;
    text-align: center;
    background-color: white;
-   width: 5ch;
    height: 2.5ch;
+   max-width: 4ch;  
    border-style: solid;
    border-color: rgb(136, 136, 136);
    border-width: 1px;
@@ -49,7 +47,7 @@ input[type="number"] {
 }
 
 .colorPicker {
-
+   align-self: center;
    border-radius: 50%;
    border-color: rgb(177, 174, 174);
    padding-right: 1.2ch;

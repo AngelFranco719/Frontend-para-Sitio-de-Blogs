@@ -1,6 +1,6 @@
 import { ReactEditor } from "slate-react";
 import { Node, Editor, NodeEntry, Transforms } from "slate";
-import { textElement } from "../TypesDefinitions";
+import { textElement } from "../../../TypesDeclarations/BlogContentTypes";
 
 /// Evento onChange para administrar el editor.
 export const onChangeEditor = () => {
