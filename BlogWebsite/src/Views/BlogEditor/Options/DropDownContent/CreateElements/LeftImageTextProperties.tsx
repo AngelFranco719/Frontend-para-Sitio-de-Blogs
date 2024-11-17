@@ -6,7 +6,7 @@ import {
   LeftImageText,
 } from "../../../../../TypesDeclarations/BlogContentTypes";
 import { initialCustomText, initialValue } from "../PropertiesUtils";
-import { useBlogContext } from "../../../../../BlogContext";
+import { useBlogContext } from "../../../../../GlobalVariables/BlogContext";
 
 export const LeftImageTextProperties = () => {
   const [url, setURL] = useState<string>("");

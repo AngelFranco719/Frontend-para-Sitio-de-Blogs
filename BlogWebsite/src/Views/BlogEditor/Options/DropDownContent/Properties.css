@@ -72,6 +72,12 @@
     align-items: center;
     justify-content: center;
     display: flex;
+
+    img {
+        margin-top: 10px;
+        max-width: 60%;
+        border-radius: 20px;
+    }
 }
 
 .insertText {
@@ -112,10 +118,13 @@
     height: max-content;
     width: 90%;
     gap: 10px;
-    row-gap: 0px;
+    row-gap: 10px;
     flex-wrap: wrap;
 
+    margin-top: 20px;
+
     img {
+        border-radius: 5px;
         width: 20%;
         height: 7ch;
         object-fit: cover;

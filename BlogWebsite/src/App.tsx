@@ -7,6 +7,9 @@ import { LayoutWithoutNav } from "./Layouts/LayoutWithoutNav";
 import { LayoutWithNav } from "./Layouts/LayoutWithNav";
 import { HomePage } from "./Views/Home/Home";
 import { FilterByCategorie } from "./Views/FilterByCategorie/FilterByCategorie";
+import { CreateBlog } from "./Views/CreateBlog/CreateBlog";
+import { BlogEditor } from "./Views/BlogEditor/BlogEditor";
+import { BlogProvider } from "./GlobalVariables/BlogContext";
 
 function App() {
   return (
@@ -24,6 +27,17 @@ function App() {
             <Route element={<LayoutWithNav />}>
               <Route path="/home" element={<HomePage />} />
               <Route path="/categories" element={<FilterByCategorie />} />
+            </Route>
+            {/* Rutas con información global del Blog */}
+            <Route
+              element={
+                <BlogProvider>
+                  <LayoutWithNav />
+                </BlogProvider>
+              }
+            >
+              <Route path="/createblog" element={<CreateBlog />} />
+              <Route path="/blogeditor" element={<BlogEditor />} />
             </Route>
           </Routes>
         </Router>
