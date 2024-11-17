@@ -6,6 +6,7 @@ import { LogIn } from "./Views/LogIn/Login";
 import { LayoutWithoutNav } from "./Layouts/LayoutWithoutNav";
 import { LayoutWithNav } from "./Layouts/LayoutWithNav";
 import { HomePage } from "./Views/Home/Home";
+import { FilterByCategorie } from "./Views/FilterByCategorie/FilterByCategorie";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             {/* Rutas CON Navbar */}
             <Route element={<LayoutWithNav />}>
               <Route path="/home" element={<HomePage />} />
+              <Route path="/categories" element={<FilterByCategorie />} />
             </Route>
           </Routes>
         </Router>
