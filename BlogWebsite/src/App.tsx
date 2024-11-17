@@ -3,6 +3,9 @@ import { Landing } from "./Views/Landing/Landing";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { SingUp } from "./Views/SignUp/SignUp";
 import { LogIn } from "./Views/LogIn/Login";
+import { LayoutWithoutNav } from "./Layouts/LayoutWithoutNav";
+import { LayoutWithNav } from "./Layouts/LayoutWithNav";
+import { HomePage } from "./Views/Home/Home";
 
 function App() {
   return (
@@ -10,9 +13,16 @@ function App() {
       <div id="App">
         <Router>
           <Routes>
-            <Route path="/" element={<Landing />} />
-            <Route path="/signup" element={<SingUp />} />
-            <Route path="/login" element={<LogIn />} />
+            {/* Rutas SIN Navbar */}
+            <Route element={<LayoutWithoutNav />}>
+              <Route path="/" element={<Landing />} />
+              <Route path="/signup" element={<SingUp />} />
+              <Route path="/login" element={<LogIn />} />
+            </Route>
+            {/* Rutas CON Navbar */}
+            <Route element={<LayoutWithNav />}>
+              <Route path="/home" element={<HomePage />} />
+            </Route>
           </Routes>
         </Router>
       </div>
