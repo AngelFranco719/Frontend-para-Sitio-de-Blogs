@@ -134,8 +134,9 @@
     }
 }
 
-.Button_Landing{
-    background-color: #292929;
+.Button_Landing {
+    background-color: #9300b8;
+    height: 40px;
     width: 40%;
     margin-top: 50px;
     align-self: center;

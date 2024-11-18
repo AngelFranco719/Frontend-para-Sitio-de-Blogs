@@ -1,4 +1,4 @@
-import { Header as header } from "../../TypesDefinitions";
+import { Header as header } from "../../../../TypesDeclarations/BlogContentTypes";
 import "./Header.css";
 
 interface propsHeader {

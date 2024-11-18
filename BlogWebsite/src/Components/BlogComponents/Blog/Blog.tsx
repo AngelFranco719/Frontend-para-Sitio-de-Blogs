@@ -16,12 +16,14 @@ import { Caroussel } from "./Caroussel/Caroussel";
 import { Banner } from "./Banner/Banner";
 import { Header } from "./Header/Header";
 import { LeftImageText } from "../EditorSlate/Editors/LeftImageText/LeftImageText";
-import { useBlogContext } from "../../../BlogContext";
+import { useBlogContext } from "../../../GlobalVariables/BlogContext";
 import { TextEditor } from "../EditorSlate/Editors/TextEditor";
 
 interface propsBlogViewer {
-  isEditing: boolean;
-  setSelectedIndex: React.Dispatch<SetStateAction<string | undefined>>;
+  isEditing: boolean | undefined;
+  setSelectedIndex:
+    | React.Dispatch<SetStateAction<string | undefined>>
+    | undefined;
 }
 
 export const BlogViewer = (props: propsBlogViewer) => {
@@ -30,6 +32,10 @@ export const BlogViewer = (props: propsBlogViewer) => {
   const childrens = content.content;
   let index = -1;
   let color = content.content && content.backgroundColor;
+
+  useEffect(() => {
+    console.log(content);
+  }, []);
 
   useEffect(() => {
     console.log("Cambió en blog");
@@ -58,7 +64,11 @@ export const BlogViewer = (props: propsBlogViewer) => {
         ></TargetEditor>
       );
     }
-    if (isHorizontalContainer(child)) {
+    if (
+      isHorizontalContainer(child) &&
+      props.isEditing != undefined &&
+      props.setSelectedIndex != undefined
+    ) {
       return (
         <HorizontalContainer
           key={index}

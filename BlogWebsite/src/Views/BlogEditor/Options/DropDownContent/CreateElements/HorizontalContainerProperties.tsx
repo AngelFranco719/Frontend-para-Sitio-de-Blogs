@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "../Properties.css";
-import { useBlogContext } from "../../../../../BlogContext";
+import { useBlogContext } from "../../../../../GlobalVariables/BlogContext";
 import { HorizontalContainer } from "../../../../../TypesDeclarations/BlogContentTypes";
 import { v4 as uuidv4 } from "uuid";
 import React from "react";

@@ -6,7 +6,7 @@ import {
   CustomText,
   textElement,
 } from "../../../../../TypesDeclarations/BlogContentTypes";
-import { useBlogContext } from "../../../../../BlogContext";
+import { useBlogContext } from "../../../../../GlobalVariables/BlogContext";
 export const CustomTextProperties = () => {
   const [text, setText] = useState<CustomText[]>([initialCustomText]);
   const [agregar, setAgregar] = useState<boolean>(false);

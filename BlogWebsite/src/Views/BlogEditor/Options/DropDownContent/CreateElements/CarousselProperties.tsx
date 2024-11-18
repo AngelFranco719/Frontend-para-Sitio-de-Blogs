@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../Properties.css";
 import { Caroussel } from "../../../../../TypesDeclarations/BlogContentTypes";
-import { useBlogContext } from "../../../../../BlogContext";
+import { useBlogContext } from "../../../../../GlobalVariables/BlogContext";
 
 export const CarousselProperties = () => {
   const [search, setSearch] = useState<boolean>(false);

@@ -6,7 +6,7 @@ import {
 } from "../../../../../TypesDeclarations/BlogContentTypes";
 import { TextEditor } from "../../../../../Components/BlogComponents/EditorSlate/Editors/TextEditor";
 import { initialCustomText, initialValue } from "../PropertiesUtils";
-import { useBlogContext } from "../../../../../BlogContext";
+import { useBlogContext } from "../../../../../GlobalVariables/BlogContext";
 import { isHorizontalContainer } from "../../../../../Components/BlogComponents/Blog/BlogTypeGuards";
 
 interface propsTarget {

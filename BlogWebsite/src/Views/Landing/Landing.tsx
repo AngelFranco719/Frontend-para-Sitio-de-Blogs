@@ -1,9 +1,10 @@
 import Typed from "typed.js";
 import "./Landing.css";
 import { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 export const Landing = () => {
   const typedElement = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const typed = new Typed(typedElement.current, {
@@ -21,6 +22,10 @@ export const Landing = () => {
       typed.destroy();
     };
   }, []);
+
+  const handleClicktoHome = () => {
+    navigate("/home");
+  };
 
   return (
     <div id="Landing">
@@ -40,7 +45,14 @@ export const Landing = () => {
             </h1>
             <h2>a través de un</h2>
             <h1 style={{ textAlign: "end", color: "#915daf" }}>Blog!</h1>
-            <button className="Button_Landing">¡Empieza Ahora!</button>
+            <button
+              onClick={() => {
+                handleClicktoHome();
+              }}
+              className="Button_Landing"
+            >
+              ¡Empieza Ahora!
+            </button>
           </div>
         </div>
       </div>

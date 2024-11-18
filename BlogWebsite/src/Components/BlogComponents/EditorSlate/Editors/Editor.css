@@ -9,6 +9,7 @@
     box-sizing: border-box;
     padding-left: 5%;
     padding-right: 5%;
+
 }
 
 .textEditor .slate-editor {
@@ -32,21 +33,18 @@
     align-items: center;
     background-color: white;
     color: rgb(46, 46, 46);
-    height: fit-content; 
+    height: fit-content;
     width: 25ch;
     border-radius: 10px;
     border-width: 1px;
     max-height: fit-content;
     padding: 2.5%;
     box-shadow: 0px 0px 15px 2px #3d3d3d;
+
+    img{
+        width: 100%;
+        border-radius: 20px;
+    }
+
 }
 
-img {
-    width: 90%;
-    height: 80%;
-    max-height: 50ch;
-    border-radius: 10px;
-    margin-top: 5%;
-    object-fit: cover;
-    margin-bottom: 0px;
-}
