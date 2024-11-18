@@ -20,8 +20,10 @@ import { useBlogContext } from "../../../GlobalVariables/BlogContext";
 import { TextEditor } from "../EditorSlate/Editors/TextEditor";
 
 interface propsBlogViewer {
-  isEditing: boolean;
-  setSelectedIndex: React.Dispatch<SetStateAction<string | undefined>>;
+  isEditing: boolean | undefined;
+  setSelectedIndex:
+    | React.Dispatch<SetStateAction<string | undefined>>
+    | undefined;
 }
 
 export const BlogViewer = (props: propsBlogViewer) => {
@@ -62,7 +64,11 @@ export const BlogViewer = (props: propsBlogViewer) => {
         ></TargetEditor>
       );
     }
-    if (isHorizontalContainer(child)) {
+    if (
+      isHorizontalContainer(child) &&
+      props.isEditing != undefined &&
+      props.setSelectedIndex != undefined
+    ) {
       return (
         <HorizontalContainer
           key={index}

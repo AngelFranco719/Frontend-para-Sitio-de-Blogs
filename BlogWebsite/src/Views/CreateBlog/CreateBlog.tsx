@@ -3,6 +3,7 @@ import "./CreateBlog.css";
 import { useNavigate } from "react-router-dom";
 import { useBlogContext } from "../../GlobalVariables/BlogContext";
 import { BlogStructure } from "../../TypesDeclarations/BlogContentTypes";
+import { useProfileContext } from "../../GlobalVariables/ProfileContext";
 
 export const CreateBlog = () => {
   const [url, setURL] = useState<string>(
@@ -12,6 +13,8 @@ export const CreateBlog = () => {
   const [image, setImage] = useState<string>(
     "https://i.pinimg.com/originals/08/e1/15/08e11579d83c4d109ccc82c3ca6428ac.gif"
   );
+
+  const { profile } = useProfileContext();
 
   const inputURL = useRef<HTMLInputElement>(null);
   const inputDesc = useRef<HTMLTextAreaElement>(null);
@@ -36,7 +39,7 @@ export const CreateBlog = () => {
     const descripcion = inputDesc.current?.value;
     const titulo = inputTitle.current?.value;
 
-    if (descripcion && titulo) {
+    if (descripcion && titulo && profile) {
       const newBlog: BlogStructure = {
         type: "Blog",
         backgroundColor: "#9300b8",
@@ -47,12 +50,11 @@ export const CreateBlog = () => {
           },
           {
             type: "Header",
-            profile: "Angel Franco",
+            profile: profile.per_nombre,
             categorie: "Videojuegos",
             date: "03/11/2024",
             description: descripcion,
-            profilePhoto:
-              "https://media.istockphoto.com/id/1388253782/es/foto/positivo-exitoso-hombre-de-negocios-profesional-de-negocios-del-milenio-retrato-de-la-cabeza.jpg?s=612x612&w=0&k=20&c=gDMgYu50FUOTQhCZwYM6deYTzHvKkKAK9e945a21hZ8=",
+            profilePhoto: profile?.per_foto,
             title: titulo,
           },
         ],

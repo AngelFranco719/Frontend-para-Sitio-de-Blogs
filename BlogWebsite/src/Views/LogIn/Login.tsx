@@ -1,10 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import { useFetch } from "../../APIController/useFetch";
 import "./Login.css";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useProfileContext } from "../../GlobalVariables/ProfileContext";
+import { Perfil } from "../../Models/PerfilModel";
+import { isPerfil } from "../../Models/ModelTypeGuards";
 
 export const LogIn = () => {
-  const { request } = useFetch<any[]>();
+  const { data, request, error, loading } = useFetch<any[]>();
+  const { profile, setProfile } = useProfileContext();
+  const [newSession, setNewSession] = useState<Perfil | undefined>(undefined);
   const navigation = useNavigate();
   const refUsername = useRef<HTMLInputElement>(null);
   const refPassword = useRef<HTMLInputElement>(null);
@@ -24,12 +29,33 @@ export const LogIn = () => {
           "Content-Type": "application/json",
         },
       });
-      alert("Se encontró la sesión");
-      navigation("/Home");
     } else {
       alert("Ingresa todos los campos.");
     }
   };
+
+  useEffect(() => {
+    if (error && !loading) {
+      alert("No se encontró el Usuario: " + error);
+      navigation("/login");
+    }
+    if (!error && !loading) {
+      alert("Inicio de Sesión Exitoso.");
+      isPerfil(data) ? setNewSession(data) : setNewSession(undefined);
+    }
+  }, [loading]);
+
+  useEffect(() => {
+    if (newSession) {
+      setProfile(newSession);
+    }
+  }, [newSession]);
+
+  useEffect(() => {
+    if (profile) {
+      navigation("/home");
+    }
+  }, [profile]);
 
   return (
     <div id="Login">

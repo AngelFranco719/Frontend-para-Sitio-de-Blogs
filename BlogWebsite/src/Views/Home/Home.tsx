@@ -1,8 +1,16 @@
 import { Categorie } from "../../Components/Global Components/HomeComponents/Categories/Categorie";
 import { categories } from "./Utils";
 import "./Home.css";
+import { useNavigate } from "react-router-dom";
 
 export const HomePage = () => {
+  const navigate = useNavigate();
+
+  const handleClickCategorie = (categorie: string) => {
+    console.log("clicked");
+    navigate(`/categories/${categorie}`);
+  };
+
   return (
     <div id="Home">
       <div className="HomeContent">
@@ -32,10 +40,20 @@ export const HomePage = () => {
             </div>
           </div>
         </div>
-        <h2 style={{color:"#292929", fontSize:"50px", margin:"0"}}>Categorías: </h2>
+        <h2 style={{ color: "#292929", fontSize: "50px", margin: "0" }}>
+          Categorías:{" "}
+        </h2>
         <div className="HomeCategories">
           {categories.map((element) => {
-            return <Categorie key={element.id} {...element} />;
+            return (
+              <Categorie
+                onClick={() => {
+                  handleClickCategorie(element.name);
+                }}
+                key={element.id}
+                {...element}
+              />
+            );
           })}
         </div>
       </div>

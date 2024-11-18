@@ -1,10 +1,4 @@
-import {
-  createContext,
-  SetStateAction,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import { createContext, SetStateAction, useContext, useState } from "react";
 import { BlogStructure } from "./../TypesDeclarations/BlogContentTypes";
 import { temporalInitialBlog } from "./../Utils";
 
@@ -30,10 +24,6 @@ interface propsBlogProvider {
 
 export const BlogProvider = ({ children }: propsBlogProvider) => {
   const [content, setContent] = useState<BlogStructure>(temporalInitialBlog);
-
-  useEffect(() => {
-    console.log(content);
-  }, [content]);
 
   return (
     <BlogContext.Provider value={{ content, setContent }}>

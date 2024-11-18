@@ -1,7 +1,7 @@
 #FilterByCategorie {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: fit-content;
     width: 100%;
     background-color: white;
     gap: 20px;

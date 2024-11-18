@@ -26,12 +26,12 @@ export type BlogStructure = {
 
 export type Header = {
   type: "Header";
-  title: String;
-  profile: String;
-  description: String;
+  title: string;
+  profile: string;
+  description: string;
   profilePhoto: string;
   categorie: string;
-  date: String;
+  date: string;
 };
 
 export type Banner = {

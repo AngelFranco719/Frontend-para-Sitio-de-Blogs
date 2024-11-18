@@ -1,19 +1,35 @@
+import { useNavigate } from "react-router-dom";
 import "./BlogPreview.css";
 
-export const BlogPreview = () => {
+interface propsBlogPreview {
+  banner: string;
+  title: string;
+  username: string;
+  description: string;
+}
+
+export const BlogPreview = (props: propsBlogPreview) => {
+  const navigate = useNavigate();
+
   return (
-    <div className="BlogPreview">
-      <img src="https://i.pinimg.com/originals/48/f9/b0/48f9b05200f0b6d1c82574060b277279.gif"></img>
+    <div
+      onClick={() => {
+        navigate(
+          `/blog/${encodeURIComponent(props.title)}/${encodeURIComponent(
+            props.username
+          )}`
+        );
+      }}
+      className="BlogPreview"
+    >
+      <img src={props.banner}></img>
       <div>
         <label>
-          Titulo del Blog:
-          <span style={{textDecoration:"none"}}>ÁngelFranco719</span>
+          {props.title}
+          <span style={{ textDecoration: "none" }}>{props.username}</span>
         </label>
 
-        <p>
-          Preview de cómo se debería ver el contenido de la previsualziación del
-          blog.
-        </p>
+        <p>{props.description}</p>
       </div>
     </div>
   );
