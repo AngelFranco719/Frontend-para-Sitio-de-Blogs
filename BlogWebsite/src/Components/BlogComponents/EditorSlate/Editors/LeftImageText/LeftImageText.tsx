@@ -1,5 +1,5 @@
 import { Editable, ReactEditor, Slate, withReact } from "slate-react";
-import { LeftImageText as leftImageText } from "../../../TypesDefinitions";
+import { LeftImageText as leftImageText } from "../../../../../TypesDeclarations/BlogContentTypes";
 import "./LeftImageText.css";
 import React, { SetStateAction, useState } from "react";
 import { createEditor } from "slate";
