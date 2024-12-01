@@ -38,13 +38,16 @@ export const OptionsToolbar = (props: propsOptions) => {
 
       console.log(JSON.stringify(newBlog));
       const ProfileID = profile.id_Perfil;
-      request(`http://localhost:8080/Blog/${ProfileID}`, {
-        method: "POST",
-        body: JSON.stringify(newBlog),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      request(
+        `https://backend-para-sitio-de-blogs-production.up.railway.app/Blog/${ProfileID}`,
+        {
+          method: "POST",
+          body: JSON.stringify(newBlog),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
     }
   };
 

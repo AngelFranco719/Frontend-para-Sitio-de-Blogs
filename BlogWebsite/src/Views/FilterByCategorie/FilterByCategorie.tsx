@@ -92,12 +92,15 @@ export const FilterByCategorie = () => {
   }, [listBlog]);
 
   const getBlogList = () => {
-    request(`http://localhost:8080/Blog/filter/${categorie}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    request(
+      `https://backend-para-sitio-de-blogs-production.up.railway.app/Blog/filter/${categorie}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
   };
 
   return IsCategorie ? (
