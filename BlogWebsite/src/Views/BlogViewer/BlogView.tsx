@@ -17,7 +17,7 @@ export const BlogView = () => {
   useEffect(() => {
     if (title && profile) {
       request(
-        `http://localhost:8080/Blog/${encodeURIComponent(
+        `https://backend-para-sitio-de-blogs-production.up.railway.app/Blog/${encodeURIComponent(
           title
         )}/${encodeURIComponent(profile)}`,
         {

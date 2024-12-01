@@ -51,13 +51,16 @@ export const SingUp = () => {
           "https://i.pinimg.com/originals/bf/cf/48/bfcf48d206e2d19c27705b476a8bfa04.gif",
       };
 
-      request("http://localhost:8080/Perfil", {
-        body: JSON.stringify(newProfile),
-        headers: {
-          "Content-Type": "application/json",
-        },
-        method: "POST",
-      });
+      request(
+        "https://backend-para-sitio-de-blogs-production.up.railway.app/Perfil",
+        {
+          body: JSON.stringify(newProfile),
+          headers: {
+            "Content-Type": "application/json",
+          },
+          method: "POST",
+        }
+      );
       navigate("/");
       alert("Se guardó el perfil con exito.");
     } else {

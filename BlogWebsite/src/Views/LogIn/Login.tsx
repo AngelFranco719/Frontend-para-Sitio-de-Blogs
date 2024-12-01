@@ -22,13 +22,16 @@ export const LogIn = () => {
         username: username,
         password: password,
       };
-      request("http://localhost:8080/Perfil/login", {
-        method: "POST",
-        body: JSON.stringify(parametros),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      request(
+        "https://backend-para-sitio-de-blogs-production.up.railway.app/Perfil/login",
+        {
+          method: "POST",
+          body: JSON.stringify(parametros),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
     } else {
       alert("Ingresa todos los campos.");
     }
